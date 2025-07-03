@@ -6,9 +6,9 @@ import CategoryFilter from "./components/CategoryFilter";
 import SearchBar from "./components/SearchBar";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
-import "./Admin.css";
+import "./AdminDashboard.css";
 
-export default function AdminPage() {
+export default function AdminDashboard() {
   const [menu, setMenu] = useState([]);
   const [selected, setSelected] = useState(null);
   const [filter, setFilter] = useState("");
