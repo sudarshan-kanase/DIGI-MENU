@@ -1,0 +1,112 @@
+/* App.css */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f3f6f9;
+  margin: 0;
+  padding: 30px;
+}
+
+.container {
+  background: #ffffff;
+  max-width: 960px;
+  margin: auto;
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* Form styling */
+.menu-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.menu-form input {
+  flex: 1 1 220px;
+  padding: 10px 14px;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+}
+
+.menu-form input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.25);
+}
+
+.menu-form button {
+  background-color: #28a745;
+  color: white;
+  padding: 10px 20px;
+  font-weight: 500;
+  font-size: 15px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.menu-form button:hover {
+  background-color: #218838;
+}
+
+/* Filter input */
+.filter-container {
+  margin-bottom: 20px;
+}
+
+.filter-input {
+  padding: 10px 14px;
+  width: 100%;
+  max-width: 300px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+}
+
+/* Table styling */
+.menu-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+}
+
+.menu-table th,
+.menu-table td {
+  padding: 14px 16px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.menu-table th {
+  background-color: #f1f3f5;
+  color: #333;
+  font-weight: 600;
+}
+
+.menu-table tr:hover {
+  background-color: #f8f9fa;
+}
+
+/* Buttons in table */
+.menu-table button {
+  padding: 6px 12px;
+  margin-right: 8px;
+  border: none;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.menu-table .edit-btn {
+  background-color: #007bff;
+  color: white;
+}
+
+.menu-table .delete-btn {
+  background-color: #dc3545;
+  color: white;
+}

@@ -1,0 +1,74 @@
+.menu-form {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+  max-width: 600px;
+  margin: 0 auto 30px;
+}
+
+.menu-form input {
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  width: 100%;
+  margin-bottom: 15px;
+  font-size: 16px;
+  transition: border 0.2s;
+}
+
+.menu-form input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.menu-form .button-group {
+  display: flex;
+  justify-content: flex-start;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.menu-form .btn {
+  padding: 8px 20px;
+  font-size: 15px;
+  font-weight: 500;
+  border-radius: 6px;
+  transition: all 0.2s ease-in-out;
+}
+
+.menu-form .btn-success {
+  background-color: #28a745;
+  color: white;
+  border: none;
+}
+
+.menu-form .btn-warning {
+  background-color: #ffc107;
+  color: #000;
+  border: none;
+}
+
+.menu-form .btn-secondary {
+  background-color: #6c757d;
+  color: white;
+  border: none;
+}
+
+.menu-form .btn:hover {
+  opacity: 0.9;
+}
+@keyframes fadeSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.menu-form {
+  animation: fadeSlideIn 0.4s ease;
+}
