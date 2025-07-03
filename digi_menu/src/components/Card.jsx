@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styles from "./Card.module.css"; // Assuming you have a CSS module for styling
-export default function MenuList({ data }) {
+export default function Card({ data }) {
   const [cart, setCart] = useState([]);
 
   const handleAddToCart = (item, quantity) => {

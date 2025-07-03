@@ -6,7 +6,7 @@ import CategoryFilter from "./components/CategoryFilter";
 import SearchBar from "./components/SearchBar";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
-import "./App.css";
+import "./Admin.css";
 
 export default function AdminPage() {
   const [menu, setMenu] = useState([]);
@@ -49,26 +49,40 @@ export default function AdminPage() {
 
   return (
     <div className="container mt-5">
-      <h2 className="text-center mb-4">🍽️ Food Menu</h2>
+   <div className="bg-gradient-to-r from-orange-100 to-yellow-100 py-10 px-4 rounded-xl shadow-md mb-6">
+  <h2 className="text-3xl md:text-4xl font-bold text-center text-orange-700 mb-2 animate-pulse underline underline-offset-4">
+    🍽️ Explore Our Menu
+  </h2>
+  <p className="text-base md:text-lg text-center text-gray-700 italic">
+    Discover our delicious selection of food categories to satisfy every craving!
+  </p>
+</div>
 
-      <MenuForm onAdd={handleAdd} onUpdate={handleUpdate} selected={selected} />
+     
 
       <CategoryFilter onFilter={setFilter} selected={filter} />
       <SearchBar onSearch={setSearchTerm} />
+       <MenuForm onAdd={handleAdd} onUpdate={handleUpdate} selected={selected} />
 
-      <div className="text-center mb-3">
-        <button className="btn btn-primary me-2" onClick={() => setSelected(null)}>
-          Add New Item
-        </button>
-        <button className="btn btn-secondary" onClick={() => setFilter("")}>
-          Show All
-        </button>
-      </div>
+      <div className="text-center mb-6 space-x-4">
+  <button
+    onClick={() => setSelected(null)}
+    className="bg-orange-600 hover:bg-orange-700 text-white font-semibold py-2 px-5 rounded-lg shadow transition duration-200"
+  >
+    ➕ Add New Item
+  </button>
+  <button
+    onClick={() => setFilter("")}
+    className="bg-gray-500 hover:bg-gray-600 text-white font-semibold py-2 px-5 rounded-lg shadow transition duration-200"
+  >
+    📋 Show All
+  </button>
+</div>
 
       <div className="text-center mb-3">
         <span className="badge bg-info">{filteredMenu.length} items found</span>
       </div>
-
+    
       <MenuList data={filteredMenu} onEdit={setSelected} onDelete={handleDelete} />
     </div>
   );

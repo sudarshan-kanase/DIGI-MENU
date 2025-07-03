@@ -1,0 +1,45 @@
+/* UserPage.css */
+
+.user-page {
+  padding: 40px 20px;
+  background: url("https://images.unsplash.com/photo-1506354666786-959d6d497f1a") no-repeat center center/cover;
+  min-height: 100vh;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.user-heading {
+  font-size: 2.2rem;
+  margin-bottom: 30px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+.user-content {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 25px;
+  border-radius: 12px;
+  max-width: 900px;
+  width: 100%;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .user-heading {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+
+  .user-content {
+    padding: 15px;
+  }
+}
+.user-page {
+  background: url("https://images.unsplash.com/photo-1506354666786-959d6d497f1a") no-repeat center center/cover;
+  min-height: 100vh;
+  padding: 40px 20px;
+  color: #fff;
+}

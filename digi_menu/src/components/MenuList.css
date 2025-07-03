@@ -18,6 +18,18 @@
 .menu-table tr:hover {
   background-color: #f1f1f1;
 }
+.menu-list {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+.menu-table th {
+  background-color: #f1f3f5;
+  color: #333;
+  font-weight: 600;
+}
 
 .menu-table button {
   padding: 6px 12px;
@@ -39,4 +51,15 @@
 .menu-table button:disabled {
   background-color: #6c757d;
   cursor: not-allowed;
+}
+.menu-list {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
 }

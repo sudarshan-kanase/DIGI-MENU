@@ -4,8 +4,9 @@ import App from './App';
 import './index.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
+  <div className="overlay">
   <React.StrictMode>
     <App />
-    <App />
   </React.StrictMode>
+  </div>
 );

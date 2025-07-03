@@ -1,16 +1,22 @@
 import React from "react";
+import "./SearchBar.css";
 
 export default function SearchBar({ onSearch }) {
   return (
-    <div className="text-center mb-4">
+    <div className="search-bar">
       <input
         type="text"
         placeholder="🔍 Search by food name or category..."
-        className="form-control w-50 mx-auto"
+        className="search-input"
         onChange={(e) => onSearch(e.target.value)}
       />
     </div>
   );
 }
-// This SearchBar component allows users to search for food items by name or category.
-// It takes an `onSearch` prop, which is a function that gets called with the
+
+/*
+  This SearchBar component:
+  - Provides a centered search input
+  - Calls the `onSearch` function with the user's input value on change
+  - Can be reused anywhere to filter menu items, categories, etc.
+*/

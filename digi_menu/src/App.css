@@ -1,144 +1,38 @@
-/* Global Styles */
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(to right, #ffe29f, #ffa99f);
+/* App.css */
+
+* {
   margin: 0;
-  padding: 30px;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* Main Container */
-.container {
-  background: linear-gradient(to bottom right, #ffffff, #fffaf0);
-  max-width: 960px;
-  margin: auto;
-  padding: 30px 40px;
-  border-radius: 16px;
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
-  animation: fadeSlideIn 0.5s ease;
-}
-
-/* Form Styling */
-.menu-form {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
-  margin-bottom: 20px;
-}
-
-.menu-form input {
-  flex: 1 1 220px;
-  padding: 10px 14px;
-  font-size: 15px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  outline: none;
-}
-
-.menu-form input:focus {
-  border-color: #007bff;
-  box-shadow: 0 0 5px rgba(0, 123, 255, 0.25);
-}
-
-.menu-form button {
-  background: linear-gradient(to right, #00c853, #64dd17);
-  color: white;
-  padding: 10px 20px;
-  font-weight: 500;
-  font-size: 15px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background 0.3s ease, transform 0.2s ease;
-}
-
-.menu-form button:hover {
-  background: linear-gradient(to right, #64dd17, #00c853);
-  transform: scale(1.05);
-}
-
-/* Filter Input */
-.filter-container {
-  margin-bottom: 20px;
-}
-
-.filter-input {
-  padding: 10px 14px;
+html, body, #root {
   width: 100%;
-  max-width: 300px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  font-size: 15px;
+  min-height: 100vh;
+  overflow-x: hidden;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Table Styling */
-.menu-table {
+.app-container {
+  width: 100vw;
+  min-height: 100vh;
+  padding: 1rem 2vw;
+  background-image: url('https://source.unsplash.com/1600x900/?food,indian'); /* or your image */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.full-width {
   width: 100%;
-  border-collapse: collapse;
-  background: white;
-  border-radius: 12px;
-  overflow: hidden;
-  margin-top: 20px;
 }
-
-.menu-table th,
-.menu-table td {
-  padding: 14px 16px;
-  text-align: left;
-  border-bottom: 1px solid #ddd;
-}
-
-.menu-table th {
-  background-color: #f1f3f5;
-  color: #333;
-  font-weight: 600;
-}
-
-.menu-table tr:hover {
-  background-color: #fff0e6;
-}
-
-/* Buttons in Table */
-.menu-table button {
-  padding: 6px 12px;
-  margin-right: 8px;
-  border: none;
-  border-radius: 6px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: 0.2s ease;
-}
-
-.menu-table .edit-btn {
-  background: linear-gradient(to right, #007bff, #00bfff);
-  color: white;
-}
-
-.menu-table .edit-btn:hover {
-  background: linear-gradient(to right, #0056b3, #0099cc);
-}
-
-.menu-table .delete-btn {
-  background: linear-gradient(to right, #dc3545, #ff6f61);
-  color: white;
-}
-
-.menu-table .delete-btn:hover {
-  background: linear-gradient(to right, #b52b3a, #e85c50);
-}
-
-.menu-table button:disabled {
-  background-color: #6c757d;
-  cursor: not-allowed;
-}
-
-/* Animation */
-@keyframes fadeSlideIn {
-  0% {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.full-height {
+  height: 100%;
+}   
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", sans-serif;
+  background: url("https://images.unsplash.com/photo-1506354666786-959d6d497f1a") no-repeat center center fixed;
+  background-size: cover;
+  min-height: 100vh;
 }
