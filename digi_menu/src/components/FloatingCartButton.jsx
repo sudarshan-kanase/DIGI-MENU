@@ -3,21 +3,38 @@ import React, { useState } from "react";
 import { FaShoppingCart } from "react-icons/fa";
 import { useCart } from "./CartContext";
 import CartModal from "./CartModal";
+import PlaceOrderModal from "./PlaceOrderModal";
 import "./FloatingCartButton.css";
 
 export default function FloatingCartButton() {
   const { cartCount } = useCart();
-  const [open, setOpen] = useState(false);
+  const [openCart, setOpenCart] = useState(false);
+  const [openOrderModal, setOpenOrderModal] = useState(false);
 
   return (
     <>
-      <div className="floating-cart" onClick={() => setOpen(true)}>
+      {/* Floating Cart Icon */}
+      <div className="floating-cart" onClick={() => setOpenCart(true)}>
         <FaShoppingCart className="cart-icon" />
         {cartCount > 0 && <span className="cart-badge">{cartCount}</span>}
       </div>
 
-      {open && <CartModal onClose={() => setOpen(false)} />}
+      {/* Cart Modal */}
+      {openCart && (
+        <CartModal
+          onClose={() => setOpenCart(false)}
+          onPlaceOrder={() => {
+            setOpenCart(false); // Close cart
+            setOpenOrderModal(true); // Open order form
+          }}
+        />
+      )}
+
+      {/* Place Order Modal */}
+      <PlaceOrderModal
+        isOpen={openOrderModal}
+        onClose={() => setOpenOrderModal(false)}
+      />
     </>
   );
 }
-// FloatingCartButton.css

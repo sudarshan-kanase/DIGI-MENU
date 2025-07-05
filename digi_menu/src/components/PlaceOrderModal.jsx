@@ -1,35 +1,43 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useCart } from "./CartContext";
 import axios from "axios";
-import "./PlaceOrderModal.css";
 
 export default function PlaceOrderModal({ isOpen, onClose }) {
-  const { cart, clearCart, removeFromCart } = useCart();
+  const { cart, clearCart } = useCart();
   const [name, setName] = useState("");
   const [cottage, setCottage] = useState("");
   const [loading, setLoading] = useState(false);
+  const nameInputRef = useRef(null);
 
   const total = cart.reduce((sum, item) => sum + item.fprice * item.quantity, 0);
 
+  useEffect(() => {
+    if (isOpen) {
+      setTimeout(() => nameInputRef.current?.focus(), 150);
+    }
+  }, [isOpen]);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!name || !cottage || cart.length === 0) {
-      return alert("Please fill all fields and add items to cart.");
+    if (!name.trim() || !cottage.trim() || cart.length === 0) {
+      return alert("Please fill in all fields and add items to your cart.");
     }
 
     try {
       setLoading(true);
       await axios.post("http://localhost:3000/api/orders", {
-        name,
-        cottage,
+        name: name.trim(),
+        cottage: cottage.trim(),
         items: cart,
         total,
       });
       alert("✅ Order placed successfully!");
       clearCart();
+      setName("");
+      setCottage("");
       onClose();
     } catch (err) {
-      console.error(err);
+      console.error("Order error:", err);
       alert("❌ Failed to place order.");
     } finally {
       setLoading(false);
@@ -39,16 +47,22 @@ export default function PlaceOrderModal({ isOpen, onClose }) {
   if (!isOpen) return null;
 
   return (
-    <div className="modal-overlay">
-      <div className="modal-content">
-        <h2 className="modal-title">📦 Place Order</h2>
+    <div className="fixed inset-0 bg-black bg-opacity-40 z-50 flex items-center justify-center p-4 backdrop-blur-sm">
+      <div className="bg-white dark:bg-gray-900 w-full max-w-lg rounded-xl shadow-xl p-6 relative animate-fadeIn">
+        {/* Title */}
+        <h2 className="text-3xl font-bold text-orange-600 mb-5 text-center">
+          🧾 Confirm Your Order
+        </h2>
 
-        <form onSubmit={handleSubmit}>
+        {/* Form */}
+        <form onSubmit={handleSubmit} className="space-y-5">
           <input
             type="text"
+            ref={nameInputRef}
             placeholder="Your Name"
             value={name}
             onChange={(e) => setName(e.target.value)}
+            className="w-full px-4 py-2 rounded-lg border shadow-sm focus:ring-2 focus:ring-orange-400"
             required
           />
           <input
@@ -56,28 +70,49 @@ export default function PlaceOrderModal({ isOpen, onClose }) {
             placeholder="Cottage Name"
             value={cottage}
             onChange={(e) => setCottage(e.target.value)}
+            className="w-full px-4 py-2 rounded-lg border shadow-sm focus:ring-2 focus:ring-orange-400"
             required
           />
 
-          <ul className="cart-preview">
+          {/* Cart Preview */}
+          <div className="bg-orange-50 dark:bg-gray-800 rounded-lg max-h-52 overflow-y-auto p-3 divide-y divide-orange-100 dark:divide-gray-700">
             {cart.map((item) => (
-              <li key={item.fid}>
-                <span>{item.fname} × {item.quantity}</span>
-                <span>₹{item.fprice * item.quantity}</span>
-              </li>
+              <div key={item.fid} className="flex justify-between py-2 text-sm">
+                <span className="font-medium text-gray-800 dark:text-gray-100">
+                  {item.fname} × {item.quantity}
+                </span>
+                <span className="text-gray-700 dark:text-gray-200">
+                  ₹{item.fprice * item.quantity}
+                </span>
+              </div>
             ))}
-          </ul>
+          </div>
 
-          <p className="modal-total">Total: ₹{total}</p>
+          {/* Total */}
+          <p className="text-lg font-semibold text-right text-gray-900 dark:text-white mt-2">
+            Total: ₹{total}
+          </p>
 
-          <button type="submit" disabled={loading}>
-            {loading ? "Placing..." : "Place Order"}
+          {/* Submit Button */}
+          <button
+            type="submit"
+            disabled={loading}
+            className="w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 rounded-lg transition"
+          >
+            {loading ? "Placing Order..." : "✅ Place Order"}
           </button>
         </form>
 
-        <button onClick={onClose} className="close-btn">Cancel</button>
+        {/* Close Button */}
+        <button
+          onClick={onClose}
+          className="absolute top-3 right-3 text-gray-600 hover:text-red-600 dark:text-gray-300 dark:hover:text-red-400 text-2xl"
+          title="Close"
+        >
+          &times;
+        </button>
       </div>
     </div>
   );
 }
-import "./PlaceOrderModal.css";
+// CSS for animation (add to your CSS file)
