@@ -175,7 +175,7 @@
     font-size: 0.85rem;
   }
 }
-/* ---------- Dark Mode Support ----------
+/* ---------- Dark Mode Support ----------*/
 @media (prefers-color-scheme: dark) {
   .menu-card {
     background-color: #1f2937;
@@ -209,4 +209,4 @@
   .qty-btn:hover {
     background: #ea580c;
   }
-} */
+} 
