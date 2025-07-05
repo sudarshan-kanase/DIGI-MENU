@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaMoon, FaSun, FaBell, FaUserCircle } from "react-icons/fa";
 
 export default function Navbar() {
   const { pathname } = useLocation();
+  const navigate = useNavigate();
   const [darkMode, setDarkMode] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
 
@@ -11,6 +12,14 @@ export default function Navbar() {
     document.documentElement.classList.toggle("dark");
     setDarkMode(!darkMode);
   };
+
+  const handleLogout = () => {
+    localStorage.removeItem("isAdmin");
+    localStorage.removeItem("adminUser");
+    navigate("/admin-login");
+  };
+
+  const isAdminPage = pathname.startsWith("/admin");
 
   return (
     <nav className="bg-white dark:bg-gray-900 shadow-md dark:shadow-lg fixed top-0 w-full z-50 transition-all duration-300">
@@ -30,6 +39,7 @@ export default function Navbar() {
           >
             User View
           </Link>
+
           {/* Theme Toggle */}
           <button
             onClick={toggleTheme}
@@ -56,9 +66,22 @@ export default function Navbar() {
             />
             {showDropdown && (
               <div className="absolute right-0 mt-2 w-44 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-md shadow-lg z-20">
-                <Link to="/" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 transition">Profile</Link>
-                <Link to="/" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 transition">Settings</Link>
-                <Link to="/" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 transition">Logout</Link>
+                <Link to="/" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 transition">
+                  Profile
+                </Link>
+                <Link to="/" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 transition">
+                  Settings
+                </Link>
+
+                {/* 🔐 Show Logout ONLY for Admin */}
+                {isAdminPage && (
+                  <button
+                    onClick={handleLogout}
+                    className="block w-full text-left px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 transition text-red-600 dark:text-red-400"
+                  >
+                    Logout
+                  </button>
+                )}
               </div>
             )}
           </div>

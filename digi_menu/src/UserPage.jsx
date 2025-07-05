@@ -4,6 +4,7 @@ import axios from "axios";
 import MenuList from "./components/Card";
 import CategoryFilter from "./components/CategoryFilter";
 import SearchBar from "./components/SearchBar";
+
 // import "./App.css";
 import './UserPage.css';
 // This component renders the user page with a menu list, category filter, and search bar

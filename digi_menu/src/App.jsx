@@ -1,20 +1,31 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import AdminLogin from "./components/AdminLogin";
-import AdminDashboard from "./AdminDashboard"; // Your admin page
+import AdminDashboard from "./AdminDashboard";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import QRLogin from "./components/QRLogin";
+import QRProtectedRoute from "./components/QRProtectedRoute";
+import ShowQR from "./components/ShowQR";
 import UserPage from "./UserPage";
+import AdminRegister from "./components/AdminRegister";
+import NotAllowed from "./components/NotAllowed"; // ✅ add this
 
 export default function App() {
   return (
     <Router>
-      <Navbar/>
+      <Navbar />
       <Routes>
-      
-        <Route path="/" element={<UserPage />} />
+        <Route path="/show-qr" element={<ShowQR />} />
+        <Route
+          path="/"
+          element={
+            <QRProtectedRoute>
+              <UserPage />
+            </QRProtectedRoute>
+          }
+        />
         <Route path="/admin-login" element={<AdminLogin />} />
+        <Route path="/admin-register" element={<AdminRegister />} />
         <Route
           path="/admin"
           element={
@@ -23,10 +34,9 @@ export default function App() {
             </ProtectedRoute>
           }
         />
+        <Route path="/not-allowed" element={<NotAllowed />} /> {/* ✅ added */}
       </Routes>
       <Footer />
     </Router>
   );
 }
-// This is the main App component that sets up the routing for the application
-// It includes routes for the user page, admin login, and admin dashboard with protection 
