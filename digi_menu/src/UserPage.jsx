@@ -1,4 +1,7 @@
 // UserPage.jsx - read-only version for viewers
+import FloatingCartButton from "./components/FloatingCartButton";
+// UserPage.jsx - This file contains the main user interface for the menu page
+// It includes a menu list, category filter, and search bar for users to explore the menu
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import MenuList from "./components/Card";
@@ -41,7 +44,8 @@ export default function UserPage() {
     Dive into our delightful range of food categories crafted to satisfy every appetite and occasion.
   </p>
 </div>
-      
+      <FloatingCartButton />
+
 
       <CategoryFilter onFilter={setFilter} selected={filter} />
       <SearchBar onSearch={setSearchTerm} />

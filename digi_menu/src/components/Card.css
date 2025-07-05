@@ -1,0 +1,212 @@
+/* ---------- Grid Layout ---------- */
+.menu-grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  margin-top: 2rem;
+  padding: 0 1rem;
+}
+
+/* ---------- Card Base ---------- */
+.menu-card {
+  background-color: #fff;
+  border-radius: 1.25rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.menu-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.1);
+}
+
+/* ---------- Content Styling ---------- */
+.menu-content {
+  padding: 1.5rem;
+  font-family: "Inter", "Segoe UI", sans-serif;
+}
+
+.menu-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #f97316;
+  margin-bottom: 0.4rem;
+  text-transform: capitalize;
+  line-height: 1.3;
+}
+
+.menu-category {
+  font-size: 0.95rem;
+  font-style: italic;
+  color: #6b7280;
+  margin-bottom: 0.3rem;
+}
+
+.menu-desc {
+  font-size: 0.95rem;
+  color: #374151;
+  line-height: 1.5;
+  margin-bottom: 0.75rem;
+  min-height: 48px;
+}
+
+.menu-price {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 1rem;
+}
+
+/* ---------- Add to Cart Button ---------- */
+.menu-btn {
+  padding: 0.6rem 1.2rem;
+  background: #f97316;
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background 0.25s ease, transform 0.15s ease;
+}
+
+.menu-btn:hover {
+  background: #ea580c;
+  transform: translateY(-1px);
+}
+
+.menu-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.35);
+}
+
+/* ---------- Quantity Control ---------- */
+.quantity-control {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.75rem;
+  gap: 0.75rem;
+}
+
+.qty-btn {
+  padding: 0.4rem 0.75rem;
+  background: #f97316;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.qty-btn:hover {
+  background: #ea580c;
+  transform: scale(1.05);
+}
+
+.qty-number {
+  font-size: 1.1rem;
+  font-weight: 700;
+  min-width: 30px;
+  text-align: center;
+}
+
+/* ---------- Mobile Responsiveness ---------- */
+@media (max-width: 640px) {
+  .menu-grid {
+    gap: 1.25rem;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  }
+
+  .menu-title {
+    font-size: 1.15rem;
+  }
+
+  .menu-desc {
+    font-size: 0.85rem;
+    min-height: 40px;
+  }
+
+  .menu-price {
+    font-size: 1rem;
+  }
+
+  .qty-btn {
+    font-size: 0.9rem;
+    padding: 0.3rem 0.6rem;
+  }
+
+  .menu-btn {
+    font-size: 0.85rem;
+    padding: 0.5rem 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .menu-grid {
+    grid-template-columns: 1fr;
+    padding: 0 0.75rem;
+  }
+
+  .menu-title {
+    font-size: 1.05rem;
+  }
+
+  .menu-desc {
+    font-size: 0.8rem;
+    min-height: 35px;
+  }
+
+  .menu-price {
+    font-size: 0.95rem;
+  }
+
+  .menu-btn {
+    padding: 0.45rem 0.9rem;
+  }
+
+  .qty-btn {
+    font-size: 0.85rem;
+  }
+}
+/* ---------- Dark Mode Support ----------
+@media (prefers-color-scheme: dark) {
+  .menu-card {
+    background-color: #1f2937;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  }
+
+  .menu-title {
+    color: #f97316;
+  }
+
+  .menu-category,
+  .menu-desc,
+  .menu-price {
+    color: #d1d5db;
+  }
+
+  .menu-btn {
+    background: #f97316;
+    color: #fff;
+  }
+
+  .menu-btn:hover {
+    background: #ea580c;
+  }
+
+  .qty-btn {
+    background: #f97316;
+    color: #fff;
+  }
+
+  .qty-btn:hover {
+    background: #ea580c;
+  }
+} */
