@@ -90,7 +90,7 @@ export default function BillingPage() {
                   <tr key={i}>
                     <td>{item.fname}</td>
                     <td>{item.quantity}</td>
-                   <td>₹{Number(item.quantity) * Number(item.price)}</td>
+                    <td>₹{item.quantity * item.fprice}</td>
                   </tr>
                 ))
               ) : (
