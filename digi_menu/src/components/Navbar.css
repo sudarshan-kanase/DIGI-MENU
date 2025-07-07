@@ -140,3 +140,7 @@ body.dark-mode .notification {
 body.dark-mode .user-icon {
   color: #f39c12;
 } 
+.logo {
+  height: 40px;
+  margin-right: 10px;
+}

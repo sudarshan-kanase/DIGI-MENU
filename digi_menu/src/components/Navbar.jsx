@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaMoon, FaSun, FaBell, FaUserCircle } from "react-icons/fa";
+import logo from "../assets/logo.png";
 
 export default function Navbar() {
   const { pathname } = useLocation();
@@ -9,7 +10,7 @@ export default function Navbar() {
   const [showDropdown, setShowDropdown] = useState(false);
   const dropdownRef = useRef(null);
 
-  // 🌙 Theme: Load from localStorage
+  // Load theme from localStorage
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme");
     const isDark = savedTheme === "dark";
@@ -17,6 +18,7 @@ export default function Navbar() {
     document.documentElement.classList.toggle("dark", isDark);
   }, []);
 
+  // Toggle theme
   const toggleTheme = () => {
     const newMode = !darkMode;
     setDarkMode(newMode);
@@ -24,6 +26,7 @@ export default function Navbar() {
     localStorage.setItem("theme", newMode ? "dark" : "light");
   };
 
+  // Admin logout
   const handleLogout = () => {
     localStorage.removeItem("isAdmin");
     localStorage.removeItem("adminUser");
@@ -32,7 +35,7 @@ export default function Navbar() {
 
   const isAdminPage = pathname.startsWith("/admin");
 
-  // 🧠 Close dropdown when clicking outside
+  // Hide dropdown when clicked outside
   useEffect(() => {
     function handleClickOutside(event) {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -46,15 +49,16 @@ export default function Navbar() {
   return (
     <nav className="bg-white dark:bg-gray-900 shadow-md dark:shadow-lg fixed top-0 w-full z-50 transition-all duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
-        {/* 🍽 Logo */}
+        {/* 🍽 Logo and Brand */}
         <Link
           to="/"
           className="text-2xl font-bold flex items-center gap-2 text-orange-600 dark:text-orange-400"
         >
-          🍽 <span className="tracking-wide">FoodMenu</span>
+          <img src={logo} alt="Vrindavan Villa Retreat" className="h-10 w-auto rounded-md" />
+          <span className="tracking-wide">Vrindavan Villa Retreat</span>
         </Link>
 
-        {/* 🔗 Menu */}
+        {/* 🔗 Nav Menu */}
         <div className="flex items-center gap-6 text-sm md:text-base">
           <Link
             to="/"
@@ -64,6 +68,8 @@ export default function Navbar() {
           >
             User View
           </Link>
+
+         
 
           {/* 🌙 Theme Toggle */}
           <button
@@ -107,7 +113,6 @@ export default function Navbar() {
                   Settings
                 </Link>
 
-                {/* 🔐 Logout only on Admin pages */}
                 {isAdminPage && (
                   <button
                     onClick={handleLogout}

@@ -8,35 +8,46 @@ import QRProtectedRoute from "./components/QRProtectedRoute";
 import ShowQR from "./components/ShowQR";
 import UserPage from "./UserPage";
 import AdminRegister from "./components/AdminRegister";
-import NotAllowed from "./components/NotAllowed"; // ✅ add this
-
+import BillingPage from "./components/BillingPage"; // ✅
+import NotAllowed from "./components/NotAllowed"; // ✅
+import AboutPage from "./components/AboutPage";
 export default function App() {
   return (
     <Router>
-      <Navbar />
-      <Routes>
-        <Route path="/show-qr" element={<ShowQR />} />
-        <Route
-          path="/"
-          element={
-            <QRProtectedRoute>
-              <UserPage />
-            </QRProtectedRoute>
-          }
-        />
-        <Route path="/admin-login" element={<AdminLogin />} />
-        <Route path="/admin-register" element={<AdminRegister />} />
-        <Route
-          path="/admin"
-          element={
-            <ProtectedRoute>
-              <AdminDashboard />
-            </ProtectedRoute>
-          }
-        />
-        <Route path="/not-allowed" element={<NotAllowed />} /> {/* ✅ added */}
-      </Routes>
-      <Footer />
+      <div className="flex flex-col min-h-screen"> {/* ✅ sticky wrapper */}
+
+        <Navbar />
+
+        <main className="flex-grow"> {/* ✅ fills height when content is short */}
+          <Routes>
+            <Route path="/show-qr" element={<ShowQR />} />
+            <Route
+              path="/"
+              element={
+                <QRProtectedRoute>
+                  <UserPage />
+                </QRProtectedRoute>
+              }
+            />
+            <Route path="/admin-login" element={<AdminLogin />} />
+            <Route path="/admin-register" element={<AdminRegister />} />
+            <Route
+              path="/admin"
+              element={
+                <ProtectedRoute>
+                  <AdminDashboard />
+                </ProtectedRoute>
+              }
+            />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/billing" element={<BillingPage />} />
+            <Route path="/not-allowed" element={<NotAllowed />} />
+          </Routes>
+        </main>
+
+        <Footer /> {/* ✅ always at bottom */}
+
+      </div>
     </Router>
   );
 }
