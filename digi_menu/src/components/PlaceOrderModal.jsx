@@ -25,7 +25,7 @@ export default function PlaceOrderModal({ isOpen, onClose }) {
 
     try {
       setLoading(true);
-      await axios.post("http://localhost:3000/api/orders", {
+      await axios.post("https://digi-menu-db.onrender.com/api/orders", {
         name: name.trim(),
         cottage: cottage.trim(),
         items: cart,

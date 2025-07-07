@@ -15,7 +15,7 @@ export default function AdminDashboard() {
   const [searchTerm, setSearchTerm] = useState("");
 
   const getMenu = async () => {
-    const res = await axios.get("http://127.0.0.1:3000/menu");
+    const res = await axios.get("https://digi-menu-db.onrender.com/menu");
     setMenu(res.data.menu);
   };
 
@@ -24,18 +24,18 @@ export default function AdminDashboard() {
   }, []);
 
   const handleAdd = async (item) => {
-    await axios.post("http://127.0.0.1:3000/addmenu", item);
+    await axios.post("https://digi-menu-db.onrender.com/addmenu", item);
     getMenu();
   };
 
   const handleUpdate = async (item) => {
-    await axios.put("http://127.0.0.1:3000/updt_menu", item);
+    await axios.put("https://digi-menu-db.onrender.com/updt_menu", item);
     setSelected(null);
     getMenu();
   };
 
   const handleDelete = async (fid) => {
-    await axios.delete("http://127.0.0.1:3000/delById_menu", { data: { fid } });
+    await axios.delete("https://digi-menu-db.onrender.com/delById_menu", { data: { fid } });
     getMenu();
   };
 

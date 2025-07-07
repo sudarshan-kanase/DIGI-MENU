@@ -14,7 +14,7 @@ export default function ContactPage() {
     setStatus("Sending...");
 
     try {
-      const res = await axios.post("http://localhost:3000/api/contact", form);
+      const res = await axios.post("https://digi-menu-db.onrender.com/api/contact", form);
       if (res.data.success) {
         setStatus("✅ Message sent successfully!");
         setForm({ name: "", email: "", message: "" });
