@@ -14,7 +14,7 @@ export default function AdminLogin() {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("https://digi-menu-db.onrender.com/api/login", form);
+      const res = await axios.post("http://127.0.0.1:3000/api/login", form);
       localStorage.setItem("isAdmin", "true");
       localStorage.setItem("adminUser", JSON.stringify(res.data.user));
       navigate("/admin");

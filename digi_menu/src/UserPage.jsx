@@ -18,7 +18,7 @@ export default function UserPage() {
   const [searchTerm, setSearchTerm] = useState("");
 
   const getMenu = async () => {
-    const res = await axios.get("https://digi-menu-db.onrender.com/menu");
+    const res = await axios.get("http://127.0.0.1:3000/menu");
     setMenu(res.data.menu);
   };
 

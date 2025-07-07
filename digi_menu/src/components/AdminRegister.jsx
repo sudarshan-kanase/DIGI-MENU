@@ -13,7 +13,7 @@ export default function AdminRegister() {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("https://digi-menu-db.onrender.com/api/register", form);
+      const res = await axios.post("http://127.0.0.1:3000/api/register", form);
       alert(res.data.message || "Registered successfully");
       navigate("/admin-login");
     } catch (err) {

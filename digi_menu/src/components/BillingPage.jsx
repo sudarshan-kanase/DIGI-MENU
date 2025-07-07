@@ -16,7 +16,7 @@ export default function BillingPage() {
     }
 
     try {
-      const res = await axios.post("https://digi-menu-db.onrender.com/api/orders/search", {
+      const res = await axios.post("http://127.0.0.1:3000/api/orders/search", {
         name,
         cottage,
       });
