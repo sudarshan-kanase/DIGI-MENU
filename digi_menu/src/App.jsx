@@ -11,6 +11,7 @@ import AdminRegister from "./components/AdminRegister";
 import BillingPage from "./components/BillingPage"; // ✅
 import NotAllowed from "./components/NotAllowed"; // ✅
 import AboutPage from "./components/AboutPage";
+import ContactPage from "./components/ContactPage"; // ✅
 export default function App() {
   return (
     <Router>
@@ -39,6 +40,7 @@ export default function App() {
                 </ProtectedRoute>
               }
             />
+            <Route path="/contact" element={<ContactPage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/billing" element={<BillingPage />} />
             <Route path="/not-allowed" element={<NotAllowed />} />
