@@ -46,4 +46,3 @@ export default function AboutPage() {
   );
 }
 // This component provides an "About" page for the Vrindavan Villa Retreat, detailing its vision, digital features, team, and location.
-// It uses Tailwind CSS for styling and is responsive across devices.
