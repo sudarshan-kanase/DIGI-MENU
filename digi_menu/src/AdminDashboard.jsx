@@ -4,7 +4,6 @@ import MenuList from "./components/MenuList";
 import MenuForm from "./components/MenuForm";
 import CategoryFilter from "./components/CategoryFilter";
 import SearchBar from "./components/SearchBar";
-import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import "./AdminDashboard.css";
 
