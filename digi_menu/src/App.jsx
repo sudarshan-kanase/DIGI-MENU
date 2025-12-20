@@ -47,7 +47,7 @@ export default function App() {
           </Routes>
         </main>
 
-        <Footer /> {/* ✅ always at bottom */}
+        <Footer /> ✅ always at bottom
 
       </div>
     </Router>
